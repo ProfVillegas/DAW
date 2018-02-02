@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>This example uses the addEventListener() method to attach a click event to the document.</p>
+
+<p>Click anywhere in the document.</p>
+
+<p><strong>Note:</strong> The addEventListener() method is not supported in Internet Explorer 8 and earlier versions.<em id="vermas">Ver más.</em></p>
+
+<p id="demo"></p>
+
+<script>
+    var vermas = document.getElementById("vermas");
+    vermas.addEventListener("click", function(){
+        document.getElementById("demo").innerHTML = "<b>Hello World!</b>";
+        
+        ocultar= document.createElement("em");
+        ocultar.innerHTML=" Ocultar";
+        ocultar.addEventListener("dblclick",function(){
+               document.getElementById("demo").innerHTML = " "; 
+        }, false);
+        document.getElementById("demo").append(ocultar);
+    });
+</script>
+
+</body>
+</html>

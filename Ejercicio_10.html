@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function ajax() {
+          var xmlhttp;
+          if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+          } else {
+            // code for older browsers
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+          }
+          xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                    readXML(this);
+            }
+              if (this.readyState == 4 && this.status == 404) {
+                  readXML("<h3>Página no localizada</h3>");
+            }
+          }
+          xmlhttp.open("GET", "productos.xml", true);
+          xmlhttp.send();
+        }
+       
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <style>
+        img{
+            width: 50%;
+            border-radius: 40px;
+        }
+        body{ margin: 0 auto; padding: 0; 
+        font-family: 'Lato', sans-serif;}
+        .brillar{
+            background: #DDD;
+            color:#FFFFFF;
+        }
+        .container{
+            width: 940px;
+            margin: 0 auto;
+            background-color: darksalmon;
+        }
+        header{
+            display: block;
+            background-color: cadetblue;
+            height: 60px;
+        }
+        nav{
+            background-color: darkkhaki;
+        }
+        nav ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li{
+            display: inline-block;
+        }
+        nav ul li a{
+            padding: 10px 30px;
+            display: block;
+            text-decoration: none;
+            color: azure;
+        }
+        a.submenu{
+            float: right;
+        }
+        nav ul li a:hover{
+            background-color: darkolivegreen;
+        }
+        .contenido{
+            width: 75%;
+            float: left;
+            background-color: darkseagreen;
+            min-height: 350px;
+        }
+        
+        aside{
+            width: 23%;
+            float: right;
+            background-color: deepskyblue;
+            min-height: 350px;
+        }
+        .clearfix{
+            clear: both;
+        }
+        footer{
+            background-color: darkturquoise;
+            height: 50px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even){background-color: #f2f2f2}
+    </style>
+</head>
+
+<body >
+    <div class="container">
+        <header>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#" id="op1" >Suma</a></li>
+                <li><a href="#" id="op2" >Resta</a></li>
+                <li><a href="#" id="op3" >Multiplicacion</a></li>
+                <li><a href="#" id="op4" >División</a></li>
+            </ul>
+        </nav>
+        <div class="contenido" id="contenido">
+        </div>
+        <aside>
+        </aside>
+        <div class="clearfix"></div>
+        <footer></footer>
+    </div>
+    <script>
+        /*var links = document.getElementsByTagName("li");
+        console.log(links);
+        var hiperlink = links[3].getElementsByTagName("a")[0];
+        console.log(hiperlink.childNodes[0].nodeValue);
+        console.log(links[2].childNodes[0].childNodes[0].nodeValue);*/
+        function readXML(xmlRes){
+            var xml=xmlRes.responseXML;
+            //arreglo['tienda']=null;
+            
+            var productos=xml.getElementsByTagName("producto");
+            var AllProducto=Array();
+            //console.log(xml);
+            if(productos.length>0){ 
+                for(x=0; x<productos.length; x++){
+                    //Obtengo el texto que contiene cada una de las etiquetas
+                    tdProd1=productos[x].children[0].textContent;//Para nombre
+                    tdProd2=productos[x].children[1].textContent;//Para Precio
+                    tdProd3=productos[x].children[2].textContent;//Descripcion
+                    tdProd4=productos[x].children[3].textContent;//Precio
+                    producto={'nombre':tdProd1,'precio':tdProd2,'descripcion':tdProd3,'tipo':tdProd4};
+                    AllProducto.push(producto);
+                }
+                tipo=Array();
+                tipo.push({'tipo':'1'});
+                
+                tienda=Array();
+                
+                
+                tienda.push({'productos':{'producto':AllProducto,'tipo':tipo}});
+            
+                
+                
+                console.log(JSON.stringify({'tienda':tienda}));
+                
+            } else {
+                console.log(xml);
+            }
+        }
+        ajax();
+    </script>
+</body>
+
+</html>

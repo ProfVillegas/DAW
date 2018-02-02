@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+    <!--External Styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <!-- Internal Styles -->
+	<style>
+        @media (max-width: 62em) {
+            .navbar-nav {
+                padding-top: .425rem;
+                padding-left: 0.75rem;
+            }
+            .navbar-nav .nav-item {
+                float: none;
+            }
+            .navbar-brand {
+                float: right;
+            }
+            .navbar-brand,
+            .navbar-nav .nav-item {
+                display: block;
+            }
+            .navbar-nav .nav-item + .nav-item {
+                margin-left: 0;
+            }
+            .dropdown-menu {
+                position: relative;
+                float: none;
+            }
+        }
+    </style>
+    <!-- External Scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    
+    <!-- Internal Scripts -->
+	<script type="text/javascript" src="">
+	</script>
+
+    <title>Ejercicio 08</title>
+    <script>
+    if (typeof(Storage) !== "undefined") {
+        myLocalStorage="";
+        function mostrar(){
+        document.getElementById("nombre").innerHTML=localStorage.getItem("nombre");
+        }
+        
+        function editar(tr){
+            var nombre=tr.getElementsByClassName("input-text")[0].value;
+            //Si el Id del TR es mayor al numero de registros del json entonces es uno nuevo
+            if(tr.rowIndex>myLocalStorage.books.book.length){
+                myLocalStorage.books.book.push({'nombre':nombre});
+            } else{
+                //ES una actualización    
+                myLocalStorage.books.book[(tr.rowIndex-1)].nombre=nombre;
+                
+            }
+            
+            myTemp = JSON.stringify(myLocalStorage);
+            localStorage.removeItem("myLocalStorage");
+            localStorage.setItem("myLocalStorage", myTemp);
+        }
+        function eliminar(){
+            localStorage.removeItem("nombre");
+        }
+        
+        function addProducto(id) {
+                fila = document.createElement("tr");
+                col1 = document.createElement("td");
+                col2 = document.createElement("td");
+
+                //agregar campo de texto
+                inText = document.createElement("INPUT");
+                inText.setAttribute("name", "nombre[]");
+                inText.setAttribute("class", "input-text");
+                inText.setAttribute("type", "text");
+                inText.setAttribute("readonly", "readonly");
+
+                //Si el ID no es vacio
+                if (id) {
+                    console.log("no es vacio");
+                    inText.setAttribute("value", id);
+                } else {
+                    console.log("es vacio");
+                }
+
+                col1.append(inText);
+
+                btn1 = document.createElement("a");
+                btn2 = document.createElement("a");
+
+                btn1.setAttribute("href", "javascript:;");
+                btn1.setAttribute("class", "btn btn-danger");
+                btn1.setAttribute("onclick", "delProducto(this);");
+                btn1.innerHTML = "eliminar";
+
+                btn2.setAttribute("href", "javascript:;");
+                btn2.setAttribute("class", "btn btn-warning");
+                btn2.setAttribute("onclick", "editProducto(this);");
+                btn2.innerHTML = "editar";
+
+
+                col2.append(btn1);
+                col2.append(btn2);
+
+                fila.appendChild(col1);
+                fila.appendChild(col2);
+
+                document.getElementById("tb").appendChild(fila);
+            }
+
+        function delProducto(obj){
+            if(confirm("¿Desea Eliminar?")==true){
+                
+                obj.parentNode.parentNode.remove();
+                return true;
+                
+            } else {
+                return false;
+            }
+        }
+        function editProducto(obj){ //Obj es el boton de editar
+           var trActual = obj.parentNode.parentNode; //Seleccionamos el TR donde se encuentra el boton 
+            alert(trActual.rowIndex);
+            if (obj.innerHTML.toLowerCase() == "editar") {
+                    trActual.getElementsByClassName("input-text")[0].removeAttribute('readonly');
+                
+                    obj.setAttribute("class", "btn btn-success");
+                    obj.innerHTML = "guardar";
+                    trActual.setAttribute("class", "table-warning");
+                } else {
+                    editar(trActual);
+                    trActual.getElementsByClassName("input-text")[0].setAttribute('readonly','readonly');
+                    obj.setAttribute("class", "btn btn-warning");
+                    obj.innerHTML = "editar";
+                    trActual.removeAttribute('class');
+                }
+
+        }
+        //Función para rellenar la tabla de datos
+        function loadData() {
+            JsonText = localStorage.getItem("myLocalStorage");
+            myLocalStorage = JSON.parse(JsonText);
+
+            for (var i in myLocalStorage.books.book) {
+                //console.log(myLocalStorage.books.book[i].nombre);  // (o el campo que necesites)
+                addProducto(myLocalStorage.books.book[i].nombre);
+            }
+        }
+        if(localStorage.getItem("myLocalStorage")==null){
+            //Datos Predeterminados:
+            myLocalStorage = {
+                "books": {
+                    "book": [{
+                                    "nombre": "Java"
+                                },
+                                {
+                                    "nombre": "C++"
+                            }]
+                        }
+            };
+            myLocalStorage = JSON.stringify(myLocalStorage);
+            localStorage.setItem("myLocalStorage", myLocalStorage);
+            
+        }
+    } else {
+        // Debemos decir que no tiene soporte
+    }
+    </script>
+	
+</head>
+
+<body>
+   
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+       
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Navbar</a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Page</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Page</a>
+                </li>
+                <!-- Dropdown - Delete from this comment to the next if you don't want it -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Separted</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    
+    </nav>
+
+	<div class="container-fluid">
+        
+        
+        <h2>Carrito Dinámico</h2>
+        <a class="btn btn-primary" onclick="addProducto(null);">Agregar Producto</a>
+        
+        <table  class="table table-bordered table-hover" id="tb"> 
+            <tr>
+                <th>Nombre</th>
+                <th>operacion</th>
+            </tr>
+        </table>
+        <a href="javascript:;" onclick="loadData();" role="btn" class="btn btn-primary">Cargar Datos</a>
+	</div>
+    
+
+</body>
+
+</html>

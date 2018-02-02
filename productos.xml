@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tienda>
+	<productos>
+        <producto>
+			<nombre>Mazapan</nombre>
+			<precio>5.00</precio>
+			<descripcion>Dulce</descripcion>
+			<tipo>Abarrotes</tipo>
+		</producto>
+		<producto>
+			<nombre>Coca-Cola</nombre>
+			<precio>12.00</precio>
+			<descripcion>Bebida</descripcion>
+			<tipo>Abarrotes</tipo>
+		</producto>
+		<producto>
+			<nombre>Agua</nombre>
+			<precio>10.00</precio>
+			<descripcion>Bebida</descripcion>
+			<tipo>Abarrotes</tipo>
+		</producto>
+		<producto>
+			<nombre>Doritos</nombre>
+			<precio>14.00</precio>
+			<descripcion>Botana</descripcion>
+			<tipo>Abarrotes</tipo>
+		</producto>
+		<producto>
+			<nombre>Paleta</nombre>
+			<precio>2.00</precio>
+			<descripcion>Dulce</descripcion>
+			<tipo>Abarrotes</tipo>
+		</producto>
+
+		<producto>
+			<nombre>Lavadora Star</nombre>
+			<precio>5,200.00</precio>
+			<descripcion>Lavadora</descripcion>
+			<tipo>Linea blanca</tipo>
+		</producto>
+		<producto>
+			<nombre>Estufa Gimbble</nombre>
+			<precio>3,000.00</precio>
+			<descripcion>Estufa</descripcion>
+			<tipo>Linea blanca</tipo>
+		</producto>
+		<producto>
+			<nombre>Microondas Koblenz</nombre>
+			<precio>2,000.00</precio>
+			<descripcion>Microondas</descripcion>
+			<tipo>Linea blanca</tipo>
+		</producto>
+		<producto>
+			<nombre>Clima Samsung</nombre>
+			<precio>7,000.00</precio>
+			<descripcion>Aire acondicionado</descripcion>
+			<tipo>Linea blanca</tipo>
+		</producto>
+		<producto>
+			<nombre>Lavadora Samsung</nombre>
+			<precio>6,500.00</precio>
+			<descripcion>Lavadora</descripcion>
+			<tipo>Linea blanca</tipo>
+		</producto>
+		<producto>
+			<nombre>Iphone X</nombre>
+			<precio>21,000.00</precio>
+			<descripcion>Celular</descripcion>
+			<tipo>Electronicos</tipo>
+		</producto>
+		<producto>
+			<nombre>Estereo LG</nombre>
+			<precio>2,200.00</precio>
+			<descripcion>Modular</descripcion>
+			<tipo>Electronicos</tipo>
+		</producto>
+		<producto>
+			<nombre>Television Samsung</nombre>
+			<precio>7,000.00</precio>
+			<descripcion>Television 55'</descripcion>
+			<tipo>Electronicos</tipo>
+		</producto>
+		<producto>
+			<nombre>Halo 5</nombre>
+			<precio>1,200.00</precio>
+			<descripcion>JUego Xbox ONE</descripcion>
+			<tipo>Electronicos</tipo>
+		</producto>
+		<producto>
+			<nombre>Ipad</nombre>
+			<precio>5,00.00</precio>
+			<descripcion>Tables apple</descripcion>
+			<tipo>Electronicos</tipo>
+		</producto>
+
+		<producto>
+			<nombre>Jeans supra</nombre>
+			<precio>200.00</precio>
+			<descripcion>pantalon</descripcion>
+			<tipo>Ropa</tipo>
+		</producto>
+		<producto>
+			<nombre>Tenis Nike air 65</nombre>
+			<precio>1,200.00</precio>
+			<descripcion>tenis</descripcion>
+			<tipo>Ropa</tipo>
+		</producto>
+		<producto>
+			<nombre>Camisa Polo</nombre>
+			<precio>130.00</precio>
+			<descripcion>camisa</descripcion>
+			<tipo>Ropa</tipo>
+		</producto>
+		<producto>
+			<nombre>Chamarra Levis</nombre>
+			<precio>500.00</precio>
+			<descripcion>Chamarra</descripcion>
+			<tipo>Ropa</tipo>
+		</producto>
+		<producto>
+			<nombre>Gorra Vans</nombre>
+			<precio>75.00</precio>
+			<descripcion>gorra</descripcion>
+			<tipo>Ropa</tipo>
+		</producto>
+
+    </productos>
+
+	<tipos>
+		<tipo id="1">Abarrotes</tipo>
+		<tipo id="2">Linea blanca</tipo>
+		<tipo id="3">Electronicos</tipo>
+        <tipo id="4">Ropa</tipo> 
+	</tipos>
+
+</tienda>

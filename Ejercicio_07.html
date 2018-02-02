@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function ajax() {
+          var xmlhttp;
+          if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+          } else {
+            // code for older browsers
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+          }
+          xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                    readXML(this);
+            }
+              if (this.readyState == 4 && this.status == 404) {
+                  readXML("<h3>Página no localizada</h3>");
+            }
+          }
+          xmlhttp.open("GET", "productos.xml", true);
+          xmlhttp.send();
+        }
+       
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <style>
+        img{
+            width: 50%;
+            border-radius: 40px;
+        }
+        body{ margin: 0 auto; padding: 0; 
+        font-family: 'Lato', sans-serif;}
+        .brillar{
+            background: #DDD;
+            color:#FFFFFF;
+        }
+        .container{
+            width: 940px;
+            margin: 0 auto;
+            background-color: darksalmon;
+        }
+        header{
+            display: block;
+            background-color: cadetblue;
+            height: 60px;
+        }
+        nav{
+            background-color: darkkhaki;
+        }
+        nav ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li{
+            display: inline-block;
+        }
+        nav ul li a{
+            padding: 10px 30px;
+            display: block;
+            text-decoration: none;
+            color: azure;
+        }
+        a.submenu{
+            float: right;
+        }
+        nav ul li a:hover{
+            background-color: darkolivegreen;
+        }
+        .contenido{
+            width: 75%;
+            float: left;
+            background-color: darkseagreen;
+            min-height: 350px;
+        }
+        
+        aside{
+            width: 23%;
+            float: right;
+            background-color: deepskyblue;
+            min-height: 350px;
+        }
+        .clearfix{
+            clear: both;
+        }
+        footer{
+            background-color: darkturquoise;
+            height: 50px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even){background-color: #f2f2f2}
+    </style>
+</head>
+
+<body >
+    <div class="container">
+        <header>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#" id="op1" >Suma</a></li>
+                <li><a href="#" id="op2" >Resta</a></li>
+                <li><a href="#" id="op3" >Multiplicacion</a></li>
+                <li><a href="#" id="op4" >División</a></li>
+            </ul>
+        </nav>
+        <div class="contenido" id="contenido">
+        </div>
+        <aside>
+        </aside>
+        <div class="clearfix"></div>
+        <footer></footer>
+    </div>
+    <script>
+        /*var links = document.getElementsByTagName("li");
+        console.log(links);
+        var hiperlink = links[3].getElementsByTagName("a")[0];
+        console.log(hiperlink.childNodes[0].nodeValue);
+        console.log(links[2].childNodes[0].childNodes[0].nodeValue);*/
+        function readXML(xmlRes){
+            var xml=xmlRes.responseXML;
+            
+            var productos=xml.getElementsByTagName("producto");
+            
+            //console.log(xml);
+            if(productos.length>0){
+                console.log("Archivo recuperado satisfactoriamente");
+                var tabla = document.createElement("table");
+                tabla.id="tbProductos";
+                tabla.setAttribute("class","clProductos");
+                htr=document.createElement("tr");
+                
+                td1=document.createElement("td");
+                text1=document.createTextNode("Nombre");
+                td1.appendChild(text1);
+                
+                td2=document.createElement("td");
+                text2=document.createTextNode("Precio");
+                td2.appendChild(text2);
+                
+                td3=document.createElement("td");
+                text3=document.createTextNode("Descripcion");
+                td3.appendChild(text3);
+                
+                td4=document.createElement("td");
+                text4=document.createTextNode("Tipo");
+                td4.appendChild(text4);
+                
+                htr.appendChild(td1);
+                htr.appendChild(td2);
+                htr.appendChild(td3);
+                htr.appendChild(td4);
+                
+                tabla.appendChild(htr);
+                
+                for(x=0; x<productos.length; x++){
+                    //Creo la fila
+                    tr=document.createElement("tr");
+                    
+                    //Creo las cuatro columnas
+                    tProd1= document.createElement("td");
+                    tProd2= document.createElement("td");
+                    tProd3= document.createElement("td");
+                    tProd4= document.createElement("td");
+                    
+                    //Creo los nodos de texto
+                    tdProd1= document.createTextNode;
+                    tdProd2= document.createTextNode;
+                    tdProd3= document.createTextNode;
+                    tdProd4= document.createTextNode;
+                    
+                    //Obtengo el texto que contiene cada una de las etiquetas
+                    tdProd1=productos[x].children[0].textContent;//Para nombre
+                    tdProd2=productos[x].children[1].textContent;//Para Precio
+                    tdProd3=productos[x].children[2].textContent;//Descripcion
+                    tdProd4=productos[x].children[3].textContent;//Precio
+                    
+                    //Agregamos cada texto a su respectiva columna
+                    tProd1.append(tdProd1);
+                    tProd2.append(tdProd2);
+                    tProd3.append(tdProd3);
+                    tProd4.append(tdProd4);
+                    
+                    //Agregamos las columnas a la fila que le corresponde.
+                    tr.appendChild(tProd1);
+                    tr.appendChild(tProd2);
+                    tr.appendChild(tProd3);
+                    tr.appendChild(tProd4);
+                    
+                    //Agregamos la columna a la tabla
+                    tabla.appendChild(tr);
+                }
+                
+                //Agregamos la tabla a el div#contenido para que sea visible para el usuario
+                document.getElementById("contenido").appendChild(tabla);
+                
+            } else {
+                console.log(xml);
+            }
+        }
+        ajax();
+    </script>
+</body>
+
+</html>

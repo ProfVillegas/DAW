@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function funcion(){
+       var tabla=document.getElementById("tabla");
+        tabla.setAttribute("border",1);
+            
+        }
+        function pintar(c, obj){
+            if(c==1){
+                obj.setAttribute("class","brillar");
+                mensaje(obj.textContent+": esta el cursor encima");
+            } else{
+                obj.setAttribute("class","");
+                mensaje(obj.textContent+": esta el cursor fuera");
+            }
+        }
+        function mensaje(text){
+            var msg=document.getElementsByTagName("p");
+            txt = document.createTextNode(text);
+            salto =document.createElement("br");
+            msg[0].appendChild(txt);
+            msg[0].appendChild(salto);
+        }
+    </script>
+    <style>
+        .brillar{
+            background: #DDD;
+            color:#FFFFFF;
+        }
+    </style>
+</head>
+
+<body onload="funcion()">
+    <table id="tabla">
+        <tr>
+            <td onmouseover="pintar(1,this)" onmouseout="pintar(2,this)">1</td>
+            <td onmouseover="pintar(1,this)" onmouseout="pintar(2,this)">2</td>
+            <td onmouseover="pintar(1,this)" onmouseout="pintar(2,this)">3</td>
+        </tr>
+        <tr>
+            <td onmouseover="pintar(1,this)" onmouseout="pintar(2,this)">4</td>
+            <td onmouseover="pintar(1,this)" onmouseout="pintar(2,this)">5</td>
+            <td onmouseover="pintar(1,this)" onmouseout="pintar(2,this)">6</td>
+        </tr>
+    </table>
+    <p></p>
+</body>
+
+</html>

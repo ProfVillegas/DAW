@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function cargar(){
+            var tabla = document.createElement("table");
+            tabla.setAttribute("style","brillar");
+            tabla.setAttribute("border","1");
+            for(x=0; x<3; x++){
+                var fila = document.createElement("tr");
+                for(y=0; y<3; y++){
+                    var columna = document.createElement("td");
+                    var texto= document.createTextNode("<b>fila:</b>"+x+" <b>Columna:</b>"+y);
+                    columna.appendChild(texto);
+                    fila.appendChild(columna);
+                }
+                tabla.appendChild(fila);
+            }
+            document.body.appendChild(tabla);
+            
+        }
+       
+    </script>
+    <style>
+        .brillar{
+            background: #DDD;
+            color:#FFFFFF;
+        }
+        .container{
+            width: 940px;
+        }
+        header{
+            display: block;
+            background-color: cadetblue;
+        }
+        nav{
+            background-color: darkkhaki;
+        }
+        nav ul{
+            list-style: none;
+        }
+        nav ul li{
+            display: inline-block;
+        }
+        nav ul li a{
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body onload="cargar()">
+    <div class="container">
+        <header>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+            </ul>
+        </nav>
+        <div class="contenido">
+        </div>
+        <aside>
+        </aside>
+        <footer></footer>
+        <div class="clearfix"></div>
+    </div>
+    
+</body>
+
+</html>

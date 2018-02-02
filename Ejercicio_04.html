@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function loadClick(link) {
+          var xmlhttp;
+            document.getElementById("contenido").innerHTML="";
+            var loading =document.createElement("img");
+            loading.src="images/loading.gif";
+            
+         document.getElementById("contenido").appendChild(loading);
+            
+          if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+          } else {
+            // code for older browsers
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+          }
+          xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              document.getElementById("contenido").innerHTML=this.responseText;
+            }
+              if (this.readyState == 4 && this.status == 404) {
+                  document.getElementById("contenido").innerHTML="<h3>Página no localizada</h3>";
+            }
+          }
+          numero= link.getAttribute("id").toLowerCase().split("op")[1];
+          //  alert(numero);
+          xmlhttp.open("GET", "ej4."+numero+".html", true);
+          xmlhttp.send();
+        }
+       
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <style>
+        img{
+            width: 50%;
+            border-radius: 40px;
+        }
+        body{ margin: 0 auto; padding: 0; 
+        font-family: 'Lato', sans-serif;}
+        .brillar{
+            background: #DDD;
+            color:#FFFFFF;
+        }
+        .container{
+            width: 940px;
+            margin: 0 auto;
+            background-color: darksalmon;
+        }
+        header{
+            display: block;
+            background-color: cadetblue;
+            height: 60px;
+        }
+        nav{
+            background-color: darkkhaki;
+        }
+        nav ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li{
+            display: inline-block;
+        }
+        nav ul li a{
+            padding: 10px 30px;
+            display: block;
+            text-decoration: none;
+            color: azure;
+        }
+        a.submenu{
+            float: right;
+        }
+        nav ul li a:hover{
+            background-color: darkolivegreen;
+        }
+        .contenido{
+            width: 75%;
+            float: left;
+            background-color: darkseagreen;
+            min-height: 350px;
+        }
+        
+        aside{
+            width: 23%;
+            float: right;
+            background-color: deepskyblue;
+            min-height: 350px;
+        }
+        .clearfix{
+            clear: both;
+        }
+        footer{
+            background-color: darkturquoise;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body >
+    <div class="container">
+        <header>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#" id="op1" onclick="loadClick(this)">Suma</a></li>
+                <li><a href="#" id="op2" onclick="loadClick(this)">Resta</a></li>
+                <li><a href="#" id="op3" onclick="loadClick(this)">Multiplicacion</a></li>
+                <li><a href="#" id="op4" onclick="loadClick(this)">División</a></li>
+            </ul>
+        </nav>
+        <div class="contenido" id="contenido">
+        </div>
+        <aside>
+        </aside>
+        <div class="clearfix"></div>
+        <footer></footer>
+    </div>
+    
+</body>
+
+</html>
