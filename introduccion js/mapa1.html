@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        html {
+            height: 100%
+        }
+
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0
+        }
+
+        #mapa_div {
+            height: 100%
+        }
+
+    </style>
+    <script type="text/javascript">
+        function inicializar_mapa() {
+            var myLatLng=new google.maps.LatLng(37.774807, -3.795573);
+            var mapOptions = {
+                center: myLatLng,
+                zoom: 10,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(document.getElementById("mapa_div"),
+                mapOptions);
+            
+            var marker = new google.maps.Marker({
+                map: map,//Lo puedo hacer cuando cree el marcador
+                position: myLatLng,
+                title: "Hello World!"
+            
+            });
+
+            // Se agrega el marcador al mapa que ya se ha dibujado, haciendo un llamado al método setMap;
+           // marker.setMap(map);
+        }
+
+    </script>
+</head>
+
+<body onload="">
+    <div id="mapa_div" style="width:100%; height:100%"></div>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBs8loKWq8Cyb9aMjpdo-BaZq4vHJMgbxs&sensor=TRUE&callback=inicializar_mapa">
+
+
+    </script>
+</body>
+
+</html>
