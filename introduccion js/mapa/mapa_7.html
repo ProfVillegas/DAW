@@ -1,0 +1,110 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple icons</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+        var sucursal= 
+             [{"nombre":"SUV" , "posicion":"20.6579935,-87.0626953"},
+              {"nombre":"SEDAN" , "posicion":"20.6544597,-87.0768109"}
+             ]; 
+        var cafeterias= 
+             [{"nombre":"Tikal" , "posicion":"20.6539935,-87.0626053"},
+              {"nombre":"Palmar" , "posicion":"20.6544597,-87.0708109"}
+             ];   
+      var marcadores=[];
+      var map=null;    
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: {lat: 20.6539376, lng: -87.1417369}
+        });
+          //agregar los hipervicnulos para el control de los marcadores
+         var link1=document.createElement("a");
+          link1.href="#";
+          link1.textContent="Sucursales";
+          link1.addEventListener("click",function(){
+              eliminar();
+              for(x=0; x<sucursal.length; x++){
+                  var dir=sucursal[x].posicion.split(',');
+                  var latln=new google.maps.LatLng(dir[0],dir[1]);
+                  addMarker(latln);
+                }
+          });
+          
+          var link2=document.createElement("a");
+          link2.href="#";
+          link2.textContent="Cafeterias";
+          link2.addEventListener("click",function(){
+              eliminar();
+              for(x=0; x<cafeterias.length; x++){
+                  var dir=cafeterias[x].posicion.split(',');
+                  var latln=new google.maps.LatLng(dir[0],dir[1]);
+                  addMarker(latln);
+                }
+          });
+          var link3=document.createElement("a");
+          link3.href="#";
+          link3.textContent="Todos";
+          link3.addEventListener("click",function(){
+              eliminar();
+              cafeterias.concat(sucursal);
+              for(x=0; x<cafeterias.length; x++){
+                  var dir=cafeterias[x].posicion.split(',');
+                  var latln=new google.maps.LatLng(dir[0],dir[1]);
+                  addMarker(latln);
+                }
+          });
+          
+          var content = document.getElementById("botones");
+          content.append(link1);
+          content.append(link2);
+          content.append(link3);
+
+      }
+        //Crear una funcion para agregar marcadores
+        function addMarker(direccion){
+            //alert(direccion);
+            //var dir= direccion.split(',');
+            var image = 'http://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+             var mark= new google.maps.Marker({
+              position: direccion,
+              map: map,
+              icon: image,
+              animation: google.maps.Animation.DROP
+            });
+            mark.addListener('click',function(e){
+               this.setMap(null);
+            });
+            marcadores.push(mark);
+        }
+        function eliminar(){
+            for(x=0;x<marcadores.length;x++){
+                marcadores[x].setMap(null);
+                //marcadores[x].shift(x,1);
+            }
+        }
+    </script>
+    <script async defer
+    src="//maps.googleapis.com/maps/api/js?key=AIzaSyBs8loKWq8Cyb9aMjpdo-BaZq4vHJMgbxs&sensor=false&callback=initMap">
+    </script>
+      <div id="botones"></div>
+  </body>
+</html>
