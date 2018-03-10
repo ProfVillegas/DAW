@@ -65,9 +65,9 @@
           link3.textContent="Todos";
           link3.addEventListener("click",function(){
               eliminar();
-              cafeterias.concat(sucursal);
-              for(x=0; x<cafeterias.length; x++){
-                  var dir=cafeterias[x].posicion.split(',');
+              var todas =cafeterias.concat(sucursal);
+              for(x=0; x<todas.length; x++){
+                  var dir=todas[x].posicion.split(',');
                   var latln=new google.maps.LatLng(dir[0],dir[1]);
                   addMarker(latln);
                 }
