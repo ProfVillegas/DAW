@@ -1,0 +1,762 @@
+
+
+<html>
+
+  <head>
+
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+
+    <meta charset="utf-8">
+
+    <title></title>
+
+    <style>
+
+      /* Always set the map height explicitly to define the size of the div
+
+       * element that contains the map. */
+
+      #map {
+
+        height: 100%;
+
+      }
+
+      /* Optional: Makes the sample page fill the window. */
+
+      html, body {
+
+        height: 100%;
+
+        margin: 0;
+
+        padding: 0;
+
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <div id="map"></div>
+
+    <script>
+
+     var Gym=
+
+            [{
+            "nombre":"California fitnes",
+            "posicion":"20.6371904,-87.0898943"
+        },
+        {
+            "nombre":"Energy Center",
+            "posicion":"20.6421858,-87.090785"
+        },
+        {
+            "nombre":"Evolve 5av",
+            "posicion":"20.630900,-87.069919"
+        },
+        {
+            "nombre":"Evolve 6N Centro",
+            "posicion":"20.6283343,-87.0791079"
+        },
+        {
+            "nombre":"Evolve Constituyentes",
+            "posicion":"20.6313216,-87.0832697"
+        },
+        {
+            "nombre":"Evolve Ejido",
+            "posicion":"20.6295586,-87.0738851"
+        },
+        {
+            "nombre":"Evolve Galaxia",
+            "posicion":"20.6295586,87.0738851"
+        },
+        {
+            "nombre":"Mr Colosio",
+            "posicion":"20.6336149,-87.08142389999999"
+        },
+        {
+            "nombre":"Sport Gym",
+            "posicion":"20.6622396,-87.0742791"
+        },
+        {
+            "nombre":"Ursus Gym",
+            "posicion":"20.6295586,-87.0738851"
+        }
+    ]; 
+
+      var Deportivo= 
+
+             [{
+            "nombre":"Marti Centro Maya",
+            "posicion":"20.619171,-87.096498"
+        },
+        {
+            "nombre":"Marti Quinta Alegria",
+            "posicion":"20.629740,-87.070620"
+        },
+        {
+            "nombre":"Scuba price",
+            "posicion":"20.619171,-87.089104"
+        },
+        {
+            "nombre":"Nike store",
+            "posicion":"20.621475,-87.075967"
+        },
+        {
+            "nombre":"InnovaSport",
+            "posicion":"20.624575,-87.073790"
+        },
+        {
+            "nombre":"Puma",
+            "posicion":"20.628224,-87.071339"
+        },
+        {
+            "nombre":"Marti XOP",
+            "posicion":"20.630669,-87.075777"
+        },
+        {
+            "nombre":"Deportes Star",
+            "posicion":"20.634050,-87.075958"
+        },
+        {
+            "nombre":"Deportes M Store",
+            "posicion":"20.64791,-87.067818"
+        }
+
+    ]; 
+
+    var Restaurantes=
+    [{
+      "nombre":"Zong Chen ",
+      "posicion":"20.671061,-87.115123"
+    },
+    {
+      "nombre":"Hong Kong Villas del Sol",
+      "posicion":"20.668714,-87.123017"
+    },
+    { 
+      "nombre":"Mi sushi",
+      "posicion":"20.657428,-87.065568"
+    },
+    {
+      "nombre":"Sensei",
+      "posicion":"20.650943,-87.082934"
+    },
+    {
+      "nombre":"Hong Kong Express",
+      "posicion":"20.647576","longitud":"-87.069092"
+    },
+    {
+      "nombre":"An Kuang",
+      "posicion":"20.647576,-87.069092"
+    },
+    {
+      "nombre":"China Palace",
+      "posicion":"20.625616,-87.080582"
+    },
+    {
+      "nombre":"La Muralla China",
+      "posicion":"20.620113,-87.098078"
+    },
+    {
+      "nombre":"Hong Kong",
+      "posicion":"20.615546,-87.098065"
+    },
+    {
+      "nombre":"Sen Lin",
+      "posicion":"20.675318,-87.022853"
+    }
+  ];  
+
+  var centros_comerciales=
+   [
+      {
+        "nombre": "gonzalo gerrero",
+        "posicion": "20.634959,-87.069850"
+      },
+      {
+        "nombre": "Plaza Coba",
+        "posicion": "20.652536,-87.076565"
+      },
+      {
+        "nombre": "Elektra",
+        "posicion": "20.625446,-87.079491"
+      },
+      {
+        "nombre": "Quinta Alegria",
+        "posicion": "20.630301,-87.070606"
+      },
+      {
+        "nombre": "Plaza Pelicanos",
+        "posicion": "20.626975,-87.073727"
+      },
+      {
+        "nombre": "centro maya",
+        "posicion": "20.619284,: 87.097280"
+      },
+      {
+        "nombre": "plaza playacar",
+        "posicion": "20.611411,-87.08667"
+      },
+      {
+        "nombre": "paseo del carmen:",
+        "posicion": "20.623622,-87.077195"
+      },
+      {
+        "nombre": "plaza las perlas",
+        "posicion": "20.632109,-87.073161"
+      },
+      {
+        "nombre": "plaza las americas",
+        "posicion": "20.648921,-87.082386"
+      }
+      ];
+      var RestaurantesItalianos=
+
+      [
+        {
+          "nombre": "Salento",
+          "posicion": "20.636706,-87.062305"
+        },
+        {
+          "nombre": "Pasta Italian Style",
+          "posicion": "20.638219,-87.064769"
+        },
+        {
+          "nombre": "Negroamaro",
+          "posicion": "20.634458,-87.066675"
+        },
+        {
+          "nombre": "Cenacolo",
+          "posicion": "20.633228,-87.067671"
+        },
+        {
+          "nombre": "Lucky Luciano",
+          "posicion": "20.632500,-87.068411"
+        },
+        {
+          "nombre": "II Baretto",
+          "posicion": "20.632297,-87.068640"
+        },
+        {
+          "nombre": "Ambasciatta",
+          "posicion": "20.631544,-87.068991"
+        },
+        {
+          "nombre": "Bella Italiana",
+          "posicion": "20.631388,-87.070497"
+        },
+        {
+          "nombre": "Pasta e Polpeta",
+          "posicion": "20.633201,87.074589"
+        },
+        {
+         "nombre": "La famiglia",
+          "posicion": "20.627495,-87.07309"
+        }
+        ];
+        var opticas=
+        [
+        {
+      "nombre": "DVLYN",
+      "posicion": "20.619188,-87.097399"
+    }, {
+      "nombre": "Centro Óptico del Caribe",
+      "posicion": "20.619913,-87.097383"
+    }, {
+      "nombre": "Más Visión",
+      "posicion": "20.618194,-87.092483"
+    }, {
+      "nombre": "Ópticas espadas",
+      "posicion": "20.625163,-87.083889"
+    }, {
+      "nombre": "Optimolina",
+      "posicion": "20.625307,-87.083979"
+    }, {
+      "nombre": "Óptica salud",
+      "posicion": "20.625846,-87.080993"
+    }, {
+      "nombre": "Optimall,-87.083601"
+    }, {
+      "nombre": "Óptica Nuvida",
+      "posicion": "20.628684,-87.077517"
+    }, {
+      "nombre": "Ópticas Tolosa",
+      "posicion": "20.627035,-87.073515"
+    }, 
+    {
+      "nombre": "Ópticas Provisión",
+      "posicion": "20.635942,-87.072493"
+    }
+    ];
+
+    var veterinarias=
+      [
+      {
+        "nombre": "CFE Mático",
+        "posicion": "20.635008,-87.075650"
+      },
+      {
+        "nombre": "Veterinaria Cervet Grup",
+        "posicion": "20.635166, -87.073129"
+      },
+      {
+        "nombre": "VETERINARIA EXCOLA",
+        "posicion": "20.635058,-87.093636"
+      },
+      {
+        "nombre": "veterinaria medica",
+        "posicion": "20.635939,87.075810"
+      },
+      {
+        "nombre": "HOTEL PARA MASCOTAS DOGGY HOUSE PLAYA",
+        "posicion": "20.630174,87.098811"
+      },
+      {
+        "nombre": "Castillo Canino",
+        "posicion": "20.647769,-87.089680"
+      },
+      {
+        
+        "nombre": "Pet Vet Clinica Veterinaria",
+        "posicion": "20.650466 ,-87.101277"
+      },
+      {
+        
+        "nombre": "Pet Service",
+        "posicion": "20.659656,-87.094570"
+      },
+      {
+      
+        "nombre": "Playa Pet",
+        "posicion": "20.639151 ,-87.070206"
+      },
+      {
+        "nombre": "EL MUNDO AGROPECUARIO",
+        "posicion": "20.629701,-87.086984"
+      }
+    ];
+
+    var mariscos=
+        [{
+            "nombre": "Empanadas de mariscos",
+            "posicion": "20.676558,-87.122179"
+        },
+        {
+            "nombre": "Restaurante de mariscos",
+            "posicion": "20.659878,-87.070538"
+        },
+        {
+            "nombre": "Ojo rojo restaurante de mariscos",
+            "posicion": "20.682230,-87.056571"
+        },
+        {
+            "nombre": "Chef playa mariscos",
+            "posicion": "20.651274,-87.054997"
+        },
+        {
+            "nombre": "La bamba jarocha",
+            "posicion": "20.637478,-87.071406"
+        },
+        {
+            "nombre": "Cockteleria manigua",
+            "posicion": "20.636964,-87.065971"
+        },
+        {
+            "nombre": "bucanero",
+            "posicion": "20.636839,-87.065714"
+        },
+        {
+            "nombre": "El guero marisqueria veracruzana",
+            "posicion": "20.636663,-87.065120"
+        },
+        {
+            "nombre": "La fisheria",
+            "posicion": "20.630824,-87.069201"
+        },
+        {
+            "nombre": "Mariscos y clamatos el doctorcito",
+            "posicion": "20.629739,-87.075244" 
+        }
+    ];
+
+    var Starbucks = 
+    [{
+            "nombre": "Starbucks1",
+            "posicion": "20.629902,-87.070582"
+        },
+        {
+            "nombre": "Starbuck2",
+            "posicion": "20.628144,-87.072294"
+        },
+        {
+            "nombre": "Starbucks3",
+            "posicion": "20.622366,-87.076462"
+        },
+        {
+            "nombre": "Starbucks4",
+            "posicion": "20.632819,-87.068003"
+        },
+        {
+            "nombre": "Starbucks5",
+            "posicion": "20.609121,-87.090707"
+        },
+        {
+            "nombre": "Starbucks6",
+            "posicion": "20.618896,-87.097005"
+        }
+    ];
+    
+
+
+      var marcadores=[];
+
+      var map=null;    
+
+      function initMap() {
+
+        map = new google.maps.Map(document.getElementById('map'), {
+
+          zoom: 12,
+
+          center: {lat: 20.6539376, lng: -87.1417369}
+
+        });
+          map.addListener('click',function(e){
+              //alert(e.latLng);
+              var nombre =prompt("Proporcione nombre:","");
+              var tipo = prompt("1. Rest, 2 GYM","" );
+              switch(tipo){
+                  case 1:{
+                      Restaurantes.push({"nombre":nombre,"position":e.latlng.lat()+""+e.latlng.lng()});
+                      break;
+                  }
+              }
+          
+          });
+
+          //agregar los hipervicnulos para el control de los marcadores
+
+         var link1=document.createElement("a");
+
+          link1.href="#";
+
+          link1.textContent="Gym-s  ";
+
+          link1.addEventListener("click",function(){
+
+              eliminar();
+
+              for(x=0; x<Gym.length; x++){
+
+                  var dir=Gym[x].posicion.split(',');
+
+                  var latln=new google.maps.LatLng(dir[0],dir[1]);
+
+                  addMarker(latln);
+
+                }
+
+          });
+
+          
+
+          var link2=document.createElement("a");
+
+          link2.href="#";
+
+          link2.textContent="Deportivos  ";
+
+          link2.addEventListener("click",function(){
+
+              eliminar();
+
+              for(x=0; x<Deportivo.length; x++){
+
+                  var dir=Deportivo[x].posicion.split(',');
+
+                  var latln=new google.maps.LatLng(dir[0],dir[1]);
+
+                  addMarker(latln);
+
+                }
+
+          });
+
+
+
+
+
+          var link4=document.createElement("a");
+
+          link4.href="#";
+
+          link4.textContent="Restaurantes Chinos  ";
+
+          link4.addEventListener("click",function(){
+
+              eliminar();
+
+              for(x=0; x<Restaurantes.length; x++){
+                    console.log(Restaurantes[x]);
+                  var dir=Restaurantes[x].posicion.split(',');
+
+                  var latln=new google.maps.LatLng(dir[0],dir[1]);
+
+                  addMarker(latln);
+
+                }
+
+          });
+
+
+          var link5=document.createElement("a");
+
+          link5.href="#";
+
+          link5.textContent="Centros comerciales  ";
+
+          link5.addEventListener("click",function(){
+
+              eliminar();
+
+              for(x=0; x<centros_comerciales.length; x++){
+
+                  var dir=centros_comerciales[x].posicion.split(',');
+
+                  var latln=new google.maps.LatLng(dir[0],dir[1]);
+
+                  addMarker(latln);
+
+                }
+
+          });
+
+
+          var link6=document.createElement("a");
+
+          link6.href="#";
+
+          link6.textContent="RestaurantesItalianos  ";
+
+          link6.addEventListener("click",function(){
+
+              eliminar();
+
+              for(x=0; x<RestaurantesItalianos.length; x++){
+
+                  var dir=RestaurantesItalianos[x].posicion.split(',');
+
+                  var latln=new google.maps.LatLng(dir[0],dir[1]);
+
+                  addMarker(latln);
+
+                }
+
+          });
+
+
+          var link7=document.createElement("a");
+
+          link7.href="#";
+
+          link7.textContent="Opticas  ";
+
+          link7.addEventListener("click",function(){
+
+              eliminar();
+
+              for(x=0; x<opticas.length; x++){
+
+                  var dir=opticas[x].posicion.split(',');
+
+                  var latln=new google.maps.LatLng(dir[0],dir[1]);
+
+                  addMarker(latln);
+
+                }
+
+          });
+
+          var link8=document.createElement("a");
+
+          link8.href="#";
+
+          link8.textContent="Veterinaria ";
+
+          link8.addEventListener("click",function(){
+
+              eliminar();
+
+              for(x=0; x<veterinarias.length; x++){
+
+                  var dir=veterinarias[x].posicion.split(',');
+
+                  var latln=new google.maps.LatLng(dir[0],dir[1]);
+
+                  addMarker(latln);
+
+                }
+
+          });
+
+
+           var link9=document.createElement("a");
+
+          link9.href="#";
+
+          link9.textContent="mariscos ";
+
+          link9.addEventListener("click",function(){
+
+              eliminar();
+
+              for(x=0; x<mariscos.length; x++){
+
+                  var dir=mariscos[x].posicion.split(',');
+
+                  var latln=new google.maps.LatLng(dir[0],dir[1]);
+
+                  addMarker(latln);
+
+                }
+
+          });
+
+
+          var link10=document.createElement("a");
+
+          link10.href="#";
+
+          link10.textContent="Starbucks ";
+
+          link10.addEventListener("click",function(){
+
+              eliminar();
+
+              for(x=0; x<Starbucks.length; x++){
+
+                  var dir=Starbucks[x].posicion.split(',');
+
+                  var latln=new google.maps.LatLng(dir[0],dir[1]);
+
+                  addMarker(latln);
+
+                }
+
+          });
+
+
+
+
+          var link3=document.createElement("a");
+
+          link3.href="#";
+
+          link3.textContent="Todos  ";
+
+          link3.addEventListener("click",function(){
+
+              
+
+             var todos= Deportivo.concat(Gym).concat(Restaurantes).concat(centros_comerciales);
+
+              for(x=0; x<todos.length; x++){
+
+                  var dir=todos[x].posicion.split(',');
+
+                  var latln=new google.maps.LatLng(dir[0],dir[1]);
+
+                  addMarker(latln);
+
+                }
+
+          });
+
+          
+
+          var content = document.getElementById("botones");
+
+          content.append(link1);
+
+          content.append(link2);
+
+          content.append(link4);
+
+          content.append(link5);
+
+          content.append(link6);
+
+          content.append(link7);
+
+          content.append(link8);
+
+          content.append(link9);
+
+          content.append(link10);
+
+          content.append(link3);
+
+      }
+
+        //Crear una funcion para agregar marcadores
+
+        function addMarker(direccion){
+
+            //alert(direccion);
+
+            //var dir= direccion.split(',');
+
+            var image = 'http://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+
+             var mark= new google.maps.Marker({
+
+              position: direccion,
+
+              map: map,
+
+              icon: image,
+
+              animation: google.maps.Animation.DROP
+
+            });
+
+            mark.addListener('click',function(e){
+
+               this.setMap(null);
+
+            });
+
+            marcadores.push(mark);
+
+        }
+
+        function eliminar(){
+
+            for(x=0;x<marcadores.length;x++){
+
+                marcadores[x].setMap(null);
+
+                //marcadores[x].shift(x,1);
+
+            }
+
+        }
+
+    </script>
+
+    <script async defer
+
+    src="//maps.googleapis.com/maps/api/js?key=AIzaSyBs8loKWq8Cyb9aMjpdo-BaZq4vHJMgbxs&sensor=false&callback=initMap">
+
+    </script>
+
+      <div id="botones"></div>
+
+  </body>
+
+</html>

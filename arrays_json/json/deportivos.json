@@ -1,0 +1,47 @@
+{
+    "Deportivos":[{
+            "nombre":"Marti Centro Maya",
+            "latitud":"20.619171",
+            "longitud":"-87.096498"
+        },
+        {
+            "nombre":"Marti Quinta Alegria",
+            "latitud":"20.629740",
+            "longitud":"-87.070620"
+        },
+        {
+            "nombre":"Scuba price",
+            "latitud":"20.619171",
+            "longitud":"-87.089104"
+        },
+        {
+            "nombre":"Nike store",
+            "latitud":"20.621475",
+            "longitud":"-87.075967"
+        },
+        {
+            "nombre":"InnovaSport",
+            "latitud":"20.624575",
+            "longitud":"-87.073790"
+        },
+        {
+            "nombre":"Puma",
+            "latitud":"20.628224",
+            "longitud":"-87.071339"
+        },
+        {
+            "nombre":"Marti XOP",
+            "latitud":"20.630669",
+            "longitud":"-87.075777"
+        },
+        {
+            "nombre":"Deportes Star",
+            "latitud":"20.634050",
+            "longitud":"-87.075958"
+        },
+        {
+            "nombre":"Deportes M Store",
+            "latitud":"20.647916",
+            "longitud":"-87.067818"
+        }
+    ]

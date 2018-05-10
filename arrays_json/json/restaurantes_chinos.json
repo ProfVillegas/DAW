@@ -1,0 +1,14 @@
+{"restaurantes_chinos":
+	[
+		{"Nombre":"Zong Chen ","latitud":"20.671061","longitud":"-87.115123"},
+		{"Nombre":"Hong Kong Villas del Sol","latitud":"20.668714","longitud":"-87.123017"},
+		{"Nombre":"Mi sushi","latitud":"20.657428","longitud":"-87.065568"},
+		{"Nombre":"Sensei","latitud":"20.650943","longitud":"-87.082934"},
+		{"Nombre":"Hong Kong Express","latitud":"20.647576","longitud":"-87.069092"},
+		{"Nombre":"An Kuang","latitud":"20.647576","longitud":"-87.069092"},
+		{"Nombre":"China Palace","latitud":"20.625616","longitud":"-87.080582"},
+		{"Nombre":"La Muralla China","latitud":"20.620113","longitud":"-87.098078"},
+		{"Nombre":"Hong Kong","latitud":"20.615546","longitud":"-87.098065"},
+		{"Nombre":"Sen Lin","latitud":"20.675318","longitud":"-87.022853"}
+	]
+}

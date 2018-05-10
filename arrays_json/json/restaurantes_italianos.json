@@ -1,0 +1,55 @@
+{
+      "restaurantes_italianos": [
+        {
+          "nombre": "Salento",
+          "latitud": "20.636706",
+          "longitud": "-87.062305"
+        },
+        {
+          "nombre": "Pasta Italian Style",
+          "latitud": "20.638219",
+          "longitud": "-87.064769"
+        },
+        {
+          "nombre": "Negroamaro",
+          "latitud": "20.634458",
+          "longitud": "-87.066675"
+        },
+        {
+          "nombre": "Cenacolo",
+          "latitud": "20.633228",
+          "longitud": "-87.067671"
+        },
+        {
+          "nombre": "Lucky Luciano",
+          "latitud": "20.632500",
+          "longitud": "-87.068411"
+        },
+        {
+          "nombre": "II Baretto",
+          "latitud": "20.632297",
+          "longitud": "-87.068640"
+        },
+        {
+          "nombre": "Ambasciatta",
+          "latitud": "20.631544",
+          "longitud": "-87.068991"
+        },
+        {
+          "nombre": "Bella Italiana",
+          "latitud": "20.631388",
+          "longitud": "-87.070497"
+        },
+        {
+          "nombre": "Pasta e Polpeta",
+          "latitud": "20.633201",
+          "longitud": "87.074589"
+        },
+        {
+         "nombre": "La famiglia",
+          "latitud": "20.627495",
+          "longitud": "-87.07309"
+        }
+      ]
+    }
+};

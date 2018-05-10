@@ -1,0 +1,64 @@
+{
+    "veterinarias": [
+      {
+        "-id": "1",
+        "nombre": "CFE Mático",
+        "latitud": "20.635008",
+        "longitud": "-87.075650"
+      },
+      {
+        "-id": "2",
+        "nombre": "Veterinaria Cervet Grup",
+        "latitud": "20.635166",
+        "longitud": " -87.073129"
+      },
+      {
+        "-id": "3",
+        "nombre": "VETERINARIA EXCOLA",
+        "latitud": "20.635058",
+        "longitud": "-87.093636"
+      },
+      {
+        "-id": "4",
+        "nombre": "veterinaria medica",
+        "latitud": "20.635939",
+        "longitud": "87.075810"
+      },
+      {
+        "-id": "5",
+        "nombre": "HOTEL PARA MASCOTAS DOGGY HOUSE PLAYA",
+        "latitud": "20.630174",
+        "longitud": " -87.098811"
+      },
+      {
+        "-id": "6",
+        "nombre": "Castillo Canino",
+        "latitud": "20.647769",
+        "longitud": "-87.089680"
+      },
+      {
+        "-id": "7",
+        "nombre": "Pet Vet Clinica Veterinaria",
+        "latitud": "20.650466 ",
+        "longitud": "-87.101277"
+      },
+      {
+        "-id": "8",
+        "nombre": "Pet Service",
+        "latitud": "20.659656",
+        "longitud": "-87.094570"
+      },
+      {
+        "-id": "9",
+        "nombre": "Playa Pet",
+        "latitud": "20.639151 ",
+        "longitud": "-87.070206"
+      },
+      {
+        "-id": "10",
+        "nombre": "EL MUNDO AGROPECUARIO",
+        "latitud": "20.629701",
+        "longitud": "-87.086984"
+      }
+    ]
+}

@@ -1,0 +1,19 @@
+<html>
+<head>
+<style>
+</style>
+<script type="text/javascript">
+// Solo permite ingresar numeros.
+function soloNumeros(e){
+	var key = window.Event ? e.which : e.keyCode;
+    var texto= document.getElementById("txt");
+    texto.innerHTML="Key: " + event.which;
+	return (key >= 48 && key <= 57)
+}
+</script>
+</head>
+<body>
+<input type="text" id="txtCosto" name="txtCosto" value="" onKeyPress="return soloNumeros(event)" />
+    <div id="txt"></div>
+</body>
+</html>

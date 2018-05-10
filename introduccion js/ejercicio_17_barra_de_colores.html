@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+    	<script>
+    	var colorR="00";
+    	var colorG="00";
+    	var colorB="00";
+            
+    	function getColor(e,id){
+    		x=e.clientX;
+    		y=e.clientY;
+            
+            x="00"+x.toString(16); //00FF o 0FF
+            y="00"+y.toString(16);
+            
+            x=x[x.length-2]+x[x.length-1];
+            y=y[y.length-2]+y[y.length-1];
+            
+            pintar=document.getElementById("focusArea");
+            
+            //Colorear la barra
+            var barraActual=document.getElementById(id);
+            switch(id){
+                case "R":{
+                    colorR=x;
+                    barraActual.style.backgroundColor="#"+colorR+"0000";
+                    break;
+                }
+                case "G":{
+                    colorG=x;
+                    barraActual.style.backgroundColor="#00"+colorG+"00";
+                    break;
+                }
+                case "B":{
+                    colorB=x;
+                    barraActual.style.backgroundColor="#0000"+colorB;
+                    break;
+                }
+            }
+            
+            pintar.style.backgroundColor="#"+colorR+colorG+colorB;
+            
+    		cursor="El color generado es:"+colorR+colorG+colorB;
+    		document.getElementById("displayArea").innerHTML=cursor;
+    	}
+    
+    	function detener(){
+    		document.getElementById("displayArea").innerHTML="";
+            pintar=document.getElementById("focusArea");
+            pintar.style.backgroundColor="#FFFFFF";
+    	}
+    
+    	</script>
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+            }
+            #focusArea{
+                width: 248px;
+                height: 248px;
+                border: 1px solid #000;
+            }
+            .barra{ width: 254px; border: 1px; height: 20px; border: 1px solid #000;}
+            #r{ background-color:#FF0000;}
+            #g{ background-color:#00FF00;}
+            #b{ background-color:#0000FF;}
+            
+        </style>
+    </head>
+    
+    <body>
+    	<div id="focusArea">
+            <p>Mueve el cursos encima del texto</p>
+        </div>
+            <div class="barra" id="R" onmousemove="getColor(event,this.id);"></div>
+            <div class="barra" id="G" onmousemove="getColor(event,this.id);"></div>
+            <div class="barra" id="B" onmousemove="getColor(event,this.id);"></div>
+    	<p id="displayArea"></p>
+    </body>
+    </html>

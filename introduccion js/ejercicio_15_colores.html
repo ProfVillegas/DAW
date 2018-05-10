@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+    	<script>
+    	
+    	function obtenerPosicion(e){
+    		x=e.clientX;
+    		y=e.clientY;
+            
+            x="00"+x.toString(16); //00FF o 0FF
+            y="00"+y.toString(16);
+            
+            x=x[x.length-2]+x[x.length-1];
+            y=y[y.length-2]+y[y.length-1];
+            
+            pintar=document.getElementById("focusArea");
+            pintar.style.backgroundColor="#"+x+y+"FF";
+            
+    		cursor="El cursor del mouse esta : " + x + " y " + y +" genera el siguiente color: "+"#"+x+y+"FF";
+    		document.getElementById("displayArea").innerHTML=cursor
+    	}
+    
+    	function detener(){
+    		document.getElementById("displayArea").innerHTML="";
+            pintar=document.getElementById("focusArea");
+            pintar.style.backgroundColor="#FFFFFF";
+    	}
+    
+    	</script>
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+            }
+            #focusArea{
+                width: 248px;
+                height: 248px;
+                border: 1px solid #000;
+            }
+        </style>
+    </head>
+    
+    <body>
+    	<div id="focusArea" onmousemove="obtenerPosicion(event)" onmouseout="detener()">
+            <p>Mueve el cursos encima del texto</p>
+        </div>
+    	
+    	<p id="displayArea"></p>
+    </body>
+    </html>

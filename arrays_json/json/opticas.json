@@ -1,0 +1,42 @@
+{
+	"opticas": [{
+			"nombre": "DVLYN",
+			"latitud": "20.619188",
+			"longitud": "-87.097399"
+		}, {
+			"nombre": "Centro Óptico del Caribe",
+			"latitud": "20.619913",
+			"longitud": "-87.097383"
+		}, {
+			"nombre": "Más Visión",
+			"latitud": "20.618194",
+			"longitud": "-87.092483"
+		}, {
+			"nombre": "Ópticas espadas",
+			"latitud": "20.625163",
+			"longitud": "-87.083889"
+		}, {
+			"nombre": "Optimolina",
+			"latitud": "20.625307",
+			"longitud": "-87.083979"
+		}, {
+			"nombre": "Óptica salud",
+			"latitud": "20.625846",
+			"longitud": "-87.080993"
+		}, {
+			"nombre": "Optimall",
+			"latitud": "20.629452",
+			"longitud": "-87.083601"
+		}, {
+			"nombre": "Óptica Nuvida",
+			"latitud": "20.628684",
+			"longitud": "-87.077517"
+		}, {
+			"nombre": "Ópticas Tolosa",
+			"latitud": "20.627035",
+			"longitud": "-87.073515"
+		}, {
+			"nombre": "Ópticas Provisión",
+			"latitud": "20.635942",
+			"longitud": "-87.072493"
+		}]

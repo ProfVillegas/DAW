@@ -21,12 +21,26 @@
     </style>
     <script type="text/javascript">
         
-        function inicializar_mapa() {
+        var geo_options = {
+            enableHighAccuracy: true,
+            maximumAge: 30000,
+            timeout: 27000
+        };
+        
+        function error() {
+           alert("Lo sentimos, no podemos recuperar tu ubicaciÃ³n todavÃ­a. Si usas un telÃ©fono inteligente, por favor enciende tu GPS y espera 1-2 minutos.");
+        }
+
+        navigator.geolocation.getCurrentPosition(inicializar_mapa,error,geo_options);
+        function inicializar_mapa(position) {
+            var latitude  = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            alert(latitude+" - "+longitude);
             
-            var myLatLng=new google.maps.LatLng(37.774807, -3.795573);
+            var myLatLng=new google.maps.LatLng(latitude, longitude);
             var mapOptions = {
                 center: myLatLng,
-                zoom: 10,
+                zoom: 18,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
             var map = new google.maps.Map(document.getElementById("mapa_div"),
@@ -48,7 +62,7 @@
 
 <body onload="">
     <div id="mapa_div" style="width:100%; height:100%"></div>
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBs8loKWq8Cyb9aMjpdo-BaZq4vHJMgbxs&sensor=TRUE&callback=inicializar_mapa">
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBs8loKWq8Cyb9aMjpdo-BaZq4vHJMgbxs&sensor=TRUE">
 
 
     </script>

@@ -1,0 +1,52 @@
+{
+    "gym":[{
+            "nombre":"California fitnes",
+            "latitud":"20.6371904",
+            "longitud":"-87.0898943"
+        },
+        {
+            "nombre":"Energy Center",
+            "latitud":"20.6421858",
+            "longitud":"-87.090785"
+        },
+        {
+            "nombre":"Evolve 5av",
+            "latitud":"20.630900",
+            "longitud":"-87.069919"
+        },
+        {
+            "nombre":"Evolve 6N Centro",
+            "latitud":"20.6283343",
+            "longitud":"-87.0791079"
+        },
+        {
+            "nombre":"Evolve Constituyentes",
+            "latitud":"20.6313216",
+            "longitud":"-87.0832697"
+        },
+        {
+            "nombre":"Evolve Ejido",
+            "latitud":"20.6295586",
+            "longitud":"-87.0738851"
+        },
+        {
+            "nombre":"Evolve Galaxia",
+            "latitud":"20.6295586",
+            "longitud":"-87.0738851"
+        },
+        {
+            "nombre":"Mr Colosio",
+            "latitud":"20.6336149",
+            "longitud":"-87.08142389999999"
+        },
+        {
+            "nombre":"Sport Gym",
+            "latitud":"20.6622396",
+            "longitud":"-87.0742791"
+        },
+        {
+            "nombre":"Ursus Gym",
+            "latitud":"20.6295586",
+            "longitud":"-87.0738851"
+        }
+    ]

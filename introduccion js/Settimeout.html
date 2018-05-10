@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Esperar 3 segundos.</p>
+
+<button onclick="setTimeout(mensaje, 3000);">set directo</button>
+    
+<button onclick="espera()">funcion externa</button>    
+<button onclick="espera2()">funcion externa2</button>
+
+<script>
+function mensaje() {
+    alert('Hello');
+}
+    
+function espera(){
+    setTimeout(mensaje, 3000);
+}
+
+function espera2(){
+    setTimeout(function(){alert('Hello');}, 3000);
+}
+</script>
+
+</body>
+</html>

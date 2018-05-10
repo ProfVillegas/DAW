@@ -1,0 +1,55 @@
+{
+    "centros_comerciales": [
+      {
+        "nombre": "gonzalo gerrero",
+        "latitud": "20.634959",
+        "longitud": "-87.069850"
+      },
+      {
+        "nombre": "Plaza Coba",
+        "latitud": "20.652536",
+        "longitud": "-87.076565"
+      },
+      {
+        "nombre": "Elektra",
+        "latitud": "20.625446",
+        "longitud": "-87.079491"
+      },
+      {
+        "nombre": "Quinta Alegria",
+        "latitud": "20.630301",
+        "longitud": "-87.070606"
+      },
+      {
+        "nombre": "Plaza Pelicanos",
+        "latitud": "20.626975",
+        "longitud": "-87.073727"
+      },
+      {
+        "nombre": "centro maya",
+        "latitud": "20.619284",
+        "longitud": "87.097280"
+      },
+      {
+        "nombre": "plaza playacar",
+        "latitud": "20.611411",
+        "longitud": "-87.08667"
+      },
+      {
+        "nombre": "paseo del carmen:",
+        "latitud": "20.623622",
+        "longitud": "-87.077195"
+      },
+      {
+        "nombre": "plaza las perlas",
+        "latitud": "20.632109",
+        "longitud": "-87.073161"
+      },
+      {
+        "nombre": "plaza las americas",
+        "latitud": "20.648921",
+        "longitud": "-87.082386"
+      }
+    ]
+  }
+}
